@@ -1,0 +1,17 @@
+# redis prot 
+redis_port: '6379'
+
+# sentinel port
+sentinel_port: '26379'
+
+# Note that you must specify a directory here, not a file name.
+sentinel_dir: '/var/lib/redis'
+
+# redis password
+redis_password: 'futuredata'
+
+redis_apt_url: ppa:chris-lea/redis-server
+redis_failover: true
+redis_standalone: false
+redis_cluster: true
+redis_use_repository: true

@@ -1,0 +1,14 @@
+- set_fact: force_install=no
+
+- name: Debian - Install apt-transport-https to support https APT downloads
+  apt: name=apt-transport-https state=present
+#  when: redis_use_repository
+
+- name: Debian - Add redis repository
+  apt_repository: repo={{ redis_apt_url }} state=present
+#  when: redis_use_repository
+
+- name: Debian - Ensure redis is installed
+  apt: name=redis-server state=present allow_unauthenticated=yes cache_valid_time=86400
+#  when: redis_use_repository
+

@@ -1,0 +1,7 @@
+- name: Copy Configuration File
+  template: src=sentinel.conf.j2 dest=/etc/redis/sentinel.conf owner=redis group=redis mode=0644 force=yes
+  when: redis_failover
+  
+- name: restart redis
+  service: name=redis-sentinel state=restarted enabled=yes
+  when: redis_failover

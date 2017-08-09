@@ -1,0 +1,16 @@
+- name: remove_redis_data_dir
+  file: path={{ item }} state=absent force=yes
+  with_items:
+      - '{{ redis_dir }}'
+
+- name: make_redis_data_dir
+  file: path={{ item }} state=directory owner=redis group=redis mode=755
+  with_items: 
+      - '{{ redis_dir }}'
+  ignore_errors: yes
+
+- name: Copy Slave Configure File
+  template: src=redis.conf.j2 dest=/etc/redis/redis.conf owner=redis group=redis mode=0644 force=yes
+
+- name: restart redis
+  service: name=redis-server state=restarted enabled=yes

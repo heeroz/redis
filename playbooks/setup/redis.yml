@@ -1,0 +1,12 @@
+- hosts: redis_master
+  roles:
+    - redis_master
+
+- hosts: redis_standby_master
+  roles:
+    - redis_standby_master
+
+- hosts: redis_slave
+  roles:
+    - redis_slave
+

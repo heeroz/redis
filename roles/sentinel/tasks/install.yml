@@ -1,0 +1,5 @@
+- set_fact: force_install=no
+
+- name: Debian - Ensure sentinel is installed
+  apt: name=redis-sentinel state=present allow_unauthenticated=yes cache_valid_time=86400
+  when: redis_use_repository and redis_cluster

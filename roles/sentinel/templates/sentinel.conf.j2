@@ -1,0 +1,12 @@
+port {{ sentinel_port }}
+dir "{{ sentinel_dir }}"
+
+sentinel monitor mymaster {{ groups['redis_master'][0] }} {{ redis_port }} 1
+sentinel auth-pass mymaster {{ redis_password }}
+
+daemonize yes
+pidfile "/var/run/redis/redis-sentinel.pid"
+logfile "/var/log/redis/redis-sentinel.log"
+protected-mode no
+sentinel down-after-milliseconds mymaster 10000
+sentinel failover-timeout mymaster 60000

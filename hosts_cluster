@@ -1,0 +1,18 @@
+; Top group to define what kind of environment this is.
+; Examples of the group name are "production", "test" and so on.
+[production:children]
+local
+
+; This is a dummy
+[local]
+localhost
+
+[redis_master]
+redis
+
+[redis_standby_master]
+
+[redis_slave]
+redis2
+
+[redis_sentinel]

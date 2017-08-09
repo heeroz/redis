@@ -1,0 +1,40 @@
+# redis prot 
+redis_port: '6379'
+
+# Close the connection after a client is idle for N seconds (0 to disable)
+redis_timeout: '0'
+
+# loglvel debug verbose notice warning
+redis_loglevel: 'notice'
+
+# compress db dump
+redis_rdbcompression: 'yes'
+
+# The filename where to dump the DB
+redis_dbfilename: 'dump.rdb'
+
+# Note that you must specify a directory here, not a file name.
+redis_dir: '/var/lib/redis'
+
+# redis password
+redis_password: 'futuredata'
+
+# redis disk sync
+redis_diskless_sync: 'no'
+
+# redis slave priority. 10 for standby slave, 100 for others
+redis_priority: '10'
+
+# Append Only
+redis_appendonly: 'yes'
+redis_appendfilename: 'appendonly.aof'
+
+# The default is "everysec", use "always" that's very slow but a bit safer than everysec,"no" will let the operating system flush the output buffer when it wants, for better performances
+redis_appendfsync: 'everysec'
+
+
+redis_apt_url: ppa:chris-lea/redis-server
+redis_failover: true
+redis_standalone: false
+redis_cluster: true
+redis_use_repository: true
